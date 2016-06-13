@@ -27,9 +27,9 @@
                     <td>{{ product.releaseDate }}</td>
                     <td>{{ product.price | currency }}</td>
                     <td>
-                        <a ui-sref="productDetail({productId:product.productId})" class="btn btn-default">Details</a>
-                        <a class="btn btn-primary" ui-sref="productEdit.info({productId:product.productId})">Edit</a>
-                        <a class="btn btn-danger">Delete</a>
+                        <a ui-sref="productDetail({id:product.id})" class="btn btn-default">Details</a>
+                        <a class="btn btn-primary" ui-sref="productEdit.info({id:product.id})">Edit</a>
+                        <a class="btn btn-danger" ng-click="vm.deleteProduct()">Delete</a>
                     </td>
                 </tr>
             </tbody>

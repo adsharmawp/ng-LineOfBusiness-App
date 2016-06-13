@@ -8,7 +8,7 @@
             var products = [
             {
                 "productId": 1,
-                "productName": "Leaf Rake",
+                "productName": "Mock Leaf Rake",
                 "productCode": "GDN-0011",
                 "releaseDate": "March 19, 2009",
                 "description": "Leaf rake with 48-inch wooden handle.",
@@ -68,7 +68,7 @@
             }
             ];
 
-            var productUrl = "/api/products";
+            var productUrl = "http://localhost:62336/api/products";
 
             $httpBackend.whenGET(productUrl).respond(products);
 

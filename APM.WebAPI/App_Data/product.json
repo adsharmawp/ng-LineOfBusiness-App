@@ -1,0 +1,114 @@
+[
+  {
+    "Id": 1,
+    "ProductName": "Leaf Rake",
+    "ProductCode": "GDN-0011",
+    "ReleaseDate": "2009-03-19T00:00:00",
+    "Description": "Leaf rake with 48-inch wooden handle.",
+    "Cost": 9.00,
+    "Price": 19.95,
+    "Category": "garden",
+    "Tags": [
+      "leaf",
+      "tool"
+    ],
+    "ImageUrl": "images/Leaf-Rake.png"
+  },
+  {
+    "Id": 2,
+    "ProductName": "Garden Cart",
+    "ProductCode": "GDN-0023",
+    "ReleaseDate": "2010-03-18T00:00:00",
+    "Description": "15 gallon capacity rolling garden cart",
+    "Cost": 20.00,
+    "Price": 32.99,
+    "Category": "garden",
+    "Tags": [
+      "barrow",
+      "cart",
+      "wheelbarrow"
+    ],
+    "ImageUrl": "images/garden-cart.png"
+  },
+  {
+    "Id": 5,
+    "ProductName": "Hammer",
+    "ProductCode": "TBX-0048",
+    "ReleaseDate": "2013-05-21T00:00:00",
+    "Description": "Curved claw steel hammer",
+    "Cost": 1.00,
+    "Price": 8.99,
+    "Category": "toolbox",
+    "Tags": [
+      "tool"
+    ],
+    "ImageUrl": "images/rejon-Hammer.png"
+  },
+  {
+    "Id": 8,
+    "ProductName": "Saw",
+    "ProductCode": "TBX-0022",
+    "ReleaseDate": "2009-05-15T00:00:00",
+    "Description": "15-inch steel blade hand saw",
+    "Cost": 6.95,
+    "Price": 11.55,
+    "Category": "garden",
+    "Tags": [
+      "garden",
+      "mower"
+    ],
+    "ImageUrl": "images/egore911-saw.png"
+  },
+  {
+    "Id": 10,
+    "ProductName": "Video Game Controller",
+    "ProductCode": "GMG-0042",
+    "ReleaseDate": "2002-10-15T00:00:00",
+    "Description": "Standard two-button video game controller",
+    "Cost": 2.22,
+    "Price": 35.95,
+    "Category": "gaming",
+    "Tags": [
+      "gaming",
+      "controller",
+      "video game"
+    ],
+    "ImageUrl": "images/xbox-controller-01.png"
+  },
+  {
+    "Id": 11,
+    "ProductName": "aaaaa22345",
+    "ProductCode": "aaa-aaaa",
+    "ReleaseDate": "2016-06-08T14:18:04.9504945+05:30",
+    "Description": null,
+    "Cost": 5.0,
+    "Price": 5.5,
+    "Category": null,
+    "Tags": null,
+    "ImageUrl": null
+  },
+  {
+    "Id": 12,
+    "ProductName": "bbbbb",
+    "ProductCode": "bbb-bbbb",
+    "ReleaseDate": "2016-06-08T15:54:26.5476199+05:30",
+    "Description": null,
+    "Cost": 0.0,
+    "Price": 0.0,
+    "Category": null,
+    "Tags": null,
+    "ImageUrl": null
+  },
+  {
+    "Id": 13,
+    "ProductName": "eeeeeeeeee",
+    "ProductCode": "abc-1234",
+    "ReleaseDate": "2016-06-09T00:48:42.4445665+05:30",
+    "Description": null,
+    "Cost": 0.0,
+    "Price": 0.0,
+    "Category": null,
+    "Tags": null,
+    "ImageUrl": null
+  }
+]

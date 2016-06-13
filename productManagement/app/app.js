@@ -6,7 +6,7 @@
                                                     "ui.mask",
                                                     "ui.bootstrap",
                                                     "angularCharts"
-                                                    ,"productResourceMock"
+                                                    //,"productResourceMock"
                                                   ]);
 
     app.config(function ($provide) {
@@ -36,14 +36,21 @@
             })
             .state("productEdit", {
                 abstract: true,
-                url: "/product/edit/:productId",
+                url: "/product/edit/:id",
                 templateUrl: "app/products/productEdit/productEditView.html",
                 controller: "ProductEditCtrl as vm",
                 resolve: {
                     productResource: "productResource",
                     product: function (productResource, $stateParams) {
-                        var productId = $stateParams.productId;
-                        return productResource.get({productId: productId}).$promise;
+                        var id = $stateParams.id;
+                        return productResource.get({ id: id }, function (data) {
+                            // no code needed for success in ui route resolve
+                        }, function (response) {
+                            var errorMsg = response.statusText + "\r\n";
+                            if (response.data.exceptionMessage)
+                                errorMsg += response.data.exceptionMessage;
+                            alert(errorMsg);
+                        }).$promise;
                     }
                 }
             })
@@ -60,14 +67,22 @@
                 templateUrl: "app/products/productEdit/productEditTagsView.html"
             })
             .state("productDetail", {
-                url: "/products/:productId",
+                url: "/products/:id",
                 templateUrl: "app/products/productDetail/productDetailView.html",
                 controller: "ProductDetailCtrl as vm",
                 resolve: {
                     productResource: "productResource",
                     product: function (productResource, $stateParams) {
-                        var productId = $stateParams.productId;
-                        return productResource.get({ productId: productId }).$promise;
+                        var id = $stateParams.id;
+                        return productResource.get({ id: id }, function (response) {
+                            // no code needed for success
+                        }, function (response) {
+                            if (response.status == 404) {
+                                alert("Error accessing resource: " + response.config.method + " " + response.config.url)
+                            } else {
+                                alert(response.statusText);
+                            }
+                        }).$promise;
                     }
                 }
             })

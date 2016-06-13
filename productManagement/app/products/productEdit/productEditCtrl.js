@@ -8,6 +8,7 @@
         var vm = this;
 
         vm.product = product;
+        vm.originalProduct = angular.copy(vm.product);
         vm.priceOption = "percent";
 
         vm.marginPercent = function () {
@@ -25,7 +26,7 @@
             vm.product.price = price;
         }
 
-        if (vm.product && vm.product.productId) {
+        if (vm.product && vm.product.id) {
             vm.title = "Edit: " + vm.product.productName;
         } else {
             vm.title = "New Product";
@@ -39,10 +40,45 @@
         };
         
         vm.submit = function (isValid) {
-            if(isValid){
-                vm.product.$save(function (data) {
-                    toastr.success("Save Successful")
-                });
+            if (isValid) {
+                vm.product.productCode = vm.product.productCode.substring(0, 3) + "-" + vm.product.productCode.substring(3);
+                if (vm.product.id) {
+                    vm.product.$update({ id: vm.product.id }, function (data) {
+                        vm.originalProduct = angular.copy(data);
+                        toastr.success("Updated Successful")
+                    }, function (response) {
+                        var errorMsg = response.statusText + "\r\n";
+
+                        if (response.data.modelState) {
+                            for (var key in response.data.modelState) {
+                                errorMsg += response.data.modelState[key] + "\r\n";
+                            }
+                        }
+
+                        if (response.data.exceptionMessage) {
+                            errorMsg += response.data.exceptionMessage;
+                        }
+                        alert(errorMsg);
+                    });
+                } else {
+                    vm.product.$save(function (data) {
+                        toastr.success("Saved Successful")
+                    }, function (response) {
+
+                        var errorMsg = response.statusText + "\r\n";
+
+                        if (response.data.modelState) {
+                            for (var key in response.data.modelState) {
+                                errorMsg += response.data.modelState[key]+ "\r\n";
+                            }
+                            }
+
+                        if (response.data.exceptionMessage) {
+                            errorMsg += response.data.exceptionMessage;
+                        }
+                        alert(errorMsg);
+                    });
+                }
             } else {
                 alert("Please correct the validation errors first.")
             }
@@ -50,6 +86,11 @@
 
         vm.cancel = function () {
             $state.go("productList");
+        };
+
+        vm.reset = function (form) {
+            vm.product = angular.copy(vm.originalProduct);
+            form.$setPristine();
         };
 
         vm.addTags = function (tags) {
@@ -65,5 +106,9 @@
         vm.removeTag = function (index) {
             vm.product.tags.splice(index, 1);
         }
+
+        //errorHanlder = function (response) {
+
+        //}
     }
 }());
